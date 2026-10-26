@@ -21,8 +21,15 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      # NOTE: setup-android's default packages are "tools platform-tools",
+      # but Google removed the legacy "tools" package from its repository,
+      # so the default fails with "Failed to find package 'tools'".
+      # Override with platform-tools only; platform/build-tools/NDK are
+      # installed in the next step.
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Install platform, build-tools and NDK
         run: |
