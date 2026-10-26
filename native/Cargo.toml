@@ -1,0 +1,12 @@
+[package]
+name = "amlburn_native"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "amlburn"
+crate-type = ["cdylib"]
+
+[dependencies]
+jni = "0.21.1"
+crc32fast = "1.4"
